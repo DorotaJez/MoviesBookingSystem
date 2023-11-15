@@ -44,8 +44,6 @@ Users should be able to:
 
 1. Get a list of movies with their id, title and year by providing a list of their IDs (e.g., /movies?id=133093,816692 should return 2 movies with these IDs, if they exist)
 
-- at least one param required
-
 2. Create a screenings table
 
 - columns: id, timestamp, tickets_left, movie_id (fk)
