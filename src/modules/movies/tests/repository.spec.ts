@@ -73,3 +73,24 @@ describe('findAll', () => {
     ])
   })
 })
+
+it('should return a list if some of the ids provided were not found', async () => {
+  const movies = await repository.findByIds([22, 1000000009])
+
+  // ASSERT (Then we should get...)
+  // expect to have only the selected movies
+  expect(movies).toHaveLength(1)
+  expect(movies).toEqual([
+    {
+      id: 22,
+      title: 'The Dark Knight',
+      year: 2008,
+    },
+  ])
+})
+
+it('should return a list if all of the ids provided were not found', async () => {
+  const movies = await repository.findByIds([1000000009])
+  expect(movies).toHaveLength(0)
+  expect(movies).toEqual([])
+})
