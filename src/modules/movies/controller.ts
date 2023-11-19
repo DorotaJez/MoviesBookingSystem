@@ -2,7 +2,7 @@ import { Request, Router } from 'express'
 import type { Database } from '@/database'
 import { jsonRoute } from '@/utils/middleware'
 import buildRespository from './repository'
-import BadRequest from '@/utils/errors/BadRequest'
+import { NoCorrectIDsBadRequest } from './errors'
 import { parseId } from './schema'
 
 export default (db: Database) => {
@@ -14,7 +14,7 @@ export default (db: Database) => {
     jsonRoute(async (req: Request) => {
       const idsString = req.query.id as string | undefined
       if (!idsString) {
-        throw new BadRequest('Bad request: missing movie IDs')
+        throw new NoCorrectIDsBadRequest()
       }
       const ids = idsString.split(',').map((id) => parseId(id))
       const movies = await messages.findByIds(ids)
