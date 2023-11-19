@@ -10,7 +10,7 @@
     "composite": true,
     "paths": {
       "@/*": ["./src/*"],
-      "@tests/*": ["./tests/*"],
+      "@tests/*": ["./tests/*"]
     }
   }
 }
