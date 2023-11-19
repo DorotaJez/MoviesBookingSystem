@@ -45,3 +45,8 @@ it('should return a 400 status code with error message if no params are provided
   const { body } = await supertest(app).get('/movies').expect(400)
   expect(body.error.message).toEqual('Bad request: missing movie IDs')
 })
+
+it('should return a 400 status code with error message if the params are empty', async () => {
+  const { body } = await supertest(app).get('/movies?id=').expect(400)
+  expect(body.error.message).toEqual('Bad request: missing movie IDs')
+})
