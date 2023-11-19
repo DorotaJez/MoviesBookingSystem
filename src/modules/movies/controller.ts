@@ -3,6 +3,7 @@ import type { Database } from '@/database'
 import { jsonRoute } from '@/utils/middleware'
 import buildRespository from './repository'
 import BadRequest from '@/utils/errors/BadRequest'
+import { parseId } from './schema'
 
 export default (db: Database) => {
   const messages = buildRespository(db)
@@ -15,7 +16,7 @@ export default (db: Database) => {
       if (!idsString) {
         throw new BadRequest('Bad request: missing movie IDs')
       }
-      const ids = idsString.split(',').map((id) => parseInt(id, 10))
+      const ids = idsString.split(',').map((id) => parseId(id))
       const movies = await messages.findByIds(ids)
       return movies
     })
