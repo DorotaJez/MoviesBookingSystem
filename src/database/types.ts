@@ -10,13 +10,13 @@ export interface Directors {
 }
 
 export interface Movies {
-  id: number | null;
+  id: Generated<number>;
   title: string;
   year: number | null;
 }
 
 export interface People {
-  id: number | null;
+  id: Generated<number>;
   name: string;
   birth: number | null;
 }
@@ -29,7 +29,8 @@ export interface Ratings {
 
 export interface Screenings {
   id: Generated<number>;
-  timestamp: string;
+  screeningTimestamp: string;
+  ticketsAll: number;
   ticketsLeft: number;
   movieId: number;
 }
