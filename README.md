@@ -72,8 +72,6 @@ Users should be able to:
 8. Administrators should be able to:
    [screening] create new viewing screenings for watching a movie that has a timestamp and a provided allocation of tickets
 
-- "admin options" or so from the main menu: enter username -> does exist & is admin? -> create
-
 optional requirement: delete viewing screenings while they are empty
 optional requirement: change a screening's ticket allocation as long as it is not lower than the number of reserved tickets
 

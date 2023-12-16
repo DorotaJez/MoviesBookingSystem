@@ -35,6 +35,11 @@ export interface Screenings {
   movieId: number;
 }
 
+export interface ScreeningsToUsers {
+  screeningId: number;
+  usersId: number;
+}
+
 export interface Stars {
   movieId: number;
   personId: number;
@@ -46,18 +51,13 @@ export interface Users {
   role: string;
 }
 
-export interface UsersToScreenings {
-  userId: number;
-  screeningId: number;
-}
-
 export interface DB {
   directors: Directors;
   movies: Movies;
   people: People;
   ratings: Ratings;
   screenings: Screenings;
+  screeningsToUsers: ScreeningsToUsers;
   stars: Stars;
   users: Users;
-  usersToScreenings: UsersToScreenings;
 }
