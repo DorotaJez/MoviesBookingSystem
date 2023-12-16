@@ -5,7 +5,7 @@ const USER_ROLES = ['regular', 'admin'] as const
 // const FishEnum = z.enum(VALUES);
 
 // validation schema
-type Record = Users
+export type Record = Users
 const schema = z.object({
   id: z.coerce.number().int().positive(),
   username: z.string().min(1).max(20),
@@ -17,6 +17,8 @@ const insertable = schema.omit({
 })
 
 const updateable = insertable.partial()
+
+// export type Insertable = Omit<z.infer<typeof schema>, 'id'>
 
 export const parse = (record: unknown) => schema.parse(record)
 export const parseId = (id: unknown) => schema.shape.id.parse(id)
